@@ -18,4 +18,10 @@ hiddenImgUpload.addEventListener("change", function(){
 
 	// Start compression with current image
 
+	if (document.getElementById("standardRadio").checked) {
+		standardCompression();
+	} else {
+		customCompression();
+	}
+
 })

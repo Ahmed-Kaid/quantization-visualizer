@@ -7,10 +7,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="author" content="Ahmed Kaid" />
 
     <title>Quantization Visualizer</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/light.ico" id="faviconTag">
 
     <!-- Custom fonts for this template-->
     <link
@@ -26,6 +26,7 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet" />
   </head>
+
 
   <body id="page-top">
     <!-- Page Wrapper -->
@@ -69,7 +70,7 @@
 
         <!-- Nav Item - About -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="about.html">
             <i class="fas fa-fw fa-comments"></i>
             <span>About this Project</span></a
           >
@@ -77,7 +78,7 @@
 
         <!-- Nav Item - Credits -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="credits.html">
             <i class="fas fa-fw fa-cogs"></i>
             <span>Credits</span></a
           >
@@ -116,99 +117,98 @@
 								<div align=center>
 									<table class="matrix">
 											<tr>
-													<td><input id="m11" type='number' value="16" disabled="true"></td>
-													<td><input id="m12" type='number' value="11" disabled="true"></td>
-													<td><input id="m13" type='number' value="10" disabled="true"></td>
-													<td><input id="m14" type='number' value="16" disabled="true"></td>
-													<td><input id="m15" type='number' value="24" disabled="true"></td>
-													<td><input id="m16" type='number' value="40" disabled="true"></td>
-													<td><input id="m17" type='number' value="51" disabled="true"></td>
-													<td><input id="m18" type='number' value="61" disabled="true"></td>
+													<td><input id="m11" type='number' value="16" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m12" type='number' value="11" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m13" type='number' value="10" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m14" type='number' value="16" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m15" type='number' value="24" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m16" type='number' value="40" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m17" type='number' value="51" disabled="true" onchange="customCompression()"></td>
+													<td><input id="m18" type='number' value="61" disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m21" type='number' value="12" disabled="true"></td>
-												<td><input id="m22" type='number' value="12" disabled="true"></td>
-												<td><input id="m23" type='number' value="14" disabled="true"></td>
-												<td><input id="m24" type='number' value="19" disabled="true"></td>
-												<td><input id="m25" type='number' value="26" disabled="true"></td>
-												<td><input id="m26" type='number' value="58" disabled="true"></td>
-												<td><input id="m27" type='number' value="60" disabled="true"></td>
-												<td><input id="m28" type='number' value="55" disabled="true"></td>
+												<td><input id="m21" type='number' value="12" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m22" type='number' value="12" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m23" type='number' value="14" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m24" type='number' value="19" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m25" type='number' value="26" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m26" type='number' value="58" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m27" type='number' value="60" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m28" type='number' value="55" disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m31" type='number' value="14" disabled="true"></td>
-												<td><input id="m32" type='number' value="13" disabled="true"></td>
-												<td><input id="m33" type='number' value="16" disabled="true"></td>
-												<td><input id="m34" type='number' value="24" disabled="true"></td>
-												<td><input id="m35" type='number' value="40" disabled="true"></td>
-												<td><input id="m36" type='number' value="57" disabled="true"></td>
-												<td><input id="m37" type='number' value="69" disabled="true"></td>
-												<td><input id="m38" type='number' value="56" disabled="true"></td>
+												<td><input id="m31" type='number' value="14" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m32" type='number' value="13" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m33" type='number' value="16" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m34" type='number' value="24" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m35" type='number' value="40" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m36" type='number' value="57" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m37" type='number' value="69" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m38" type='number' value="56" disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m41" type='number' value="14" disabled="true"></td>
-												<td><input id="m42" type='number' value="17" disabled="true"></td>
-												<td><input id="m43" type='number' value="22" disabled="true"></td>
-												<td><input id="m44" type='number' value="29" disabled="true"></td>
-												<td><input id="m45" type='number' value="51" disabled="true"></td>
-												<td><input id="m46" type='number' value="87" disabled="true"></td>
-												<td><input id="m47" type='number' value="80" disabled="true"></td>
-												<td><input id="m48" type='number' value="62" disabled="true"></td>
+												<td><input id="m41" type='number' value="14" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m42" type='number' value="17" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m43" type='number' value="22" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m44" type='number' value="29" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m45" type='number' value="51" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m46" type='number' value="87" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m47" type='number' value="80" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m48" type='number' value="62" disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m51" type='number' value="18" disabled="true"></td>
-												<td><input id="m52" type='number' value="22" disabled="true"></td>
-												<td><input id="m53" type='number' value="37" disabled="true"></td>
-												<td><input id="m54" type='number' value="56" disabled="true"></td>
-												<td><input id="m55" type='number' value="68" disabled="true"></td>
-												<td><input id="m56" type='number' value="109" disabled="true"></td>
-												<td><input id="m57" type='number' value="103" disabled="true"></td>
-												<td><input id="m58" type='number' value="77" disabled="true"></td>
+												<td><input id="m51" type='number' value="18"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m52" type='number' value="22"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m53" type='number' value="37"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m54" type='number' value="56"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m55" type='number' value="68"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m56" type='number' value="109" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m57" type='number' value="103" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m58" type='number' value="77"  disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m61" type='number' value="24" disabled="true"></td>
-												<td><input id="m62" type='number' value="35" disabled="true"></td>
-												<td><input id="m63" type='number' value="55" disabled="true"></td>
-												<td><input id="m64" type='number' value="64" disabled="true"></td>
-												<td><input id="m65" type='number' value="81" disabled="true"></td>
-												<td><input id="m66" type='number' value="104" disabled="true"></td>
-												<td><input id="m67" type='number' value="113" disabled="true"></td>
-												<td><input id="m68" type='number' value="92" disabled="true"></td>
+												<td><input id="m61" type='number' value="24"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m62" type='number' value="35"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m63" type='number' value="55"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m64" type='number' value="64"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m65" type='number' value="81"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m66" type='number' value="104" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m67" type='number' value="113" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m68" type='number' value="92"  disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m71" type='number' value="49" disabled="true"></td>
-												<td><input id="m72" type='number' value="64" disabled="true"></td>
-												<td><input id="m73" type='number' value="78" disabled="true"></td>
-												<td><input id="m74" type='number' value="87" disabled="true"></td>
-												<td><input id="m75" type='number' value="103" disabled="true"></td>
-												<td><input id="m76" type='number' value="121" disabled="true"></td>
-												<td><input id="m77" type='number' value="120" disabled="true"></td>
-												<td><input id="m78" type='number' value="101" disabled="true"></td>
+												<td><input id="m71" type='number' value="49"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m72" type='number' value="64"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m73" type='number' value="78"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m74" type='number' value="87"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m75" type='number' value="103" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m76" type='number' value="121" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m77" type='number' value="120" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m78" type='number' value="101" disabled="true" onchange="customCompression()"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m81" type='number' value="72" disabled="true"></td>
-												<td><input id="m82" type='number' value="92" disabled="true"></td>
-												<td><input id="m83" type='number' value="95" disabled="true"></td>
-												<td><input id="m84" type='number' value="98" disabled="true"></td>
-												<td><input id="m85" type='number' value="112" disabled="true"></td>
-												<td><input id="m86" type='number' value="100" disabled="true"></td>
-												<td><input id="m87" type='number' value="103" disabled="true"></td>
-												<td><input id="m88" type='number' value="99" disabled="true"></td>
+												<td><input id="m81" type='number' value="72"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m82" type='number' value="92"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m83" type='number' value="95"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m84" type='number' value="98"  disabled="true" onchange="customCompression()"></td>
+												<td><input id="m85" type='number' value="112" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m86" type='number' value="100" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m87" type='number' value="103" disabled="true" onchange="customCompression()"></td>
+												<td><input id="m88" type='number' value="99"  disabled="true" onchange="customCompression()"></td>
 											</tr>
 									</table>
 								</div>
 								
 								<!-- Input Image -->
-								<!-- <img src="example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-5" style="border-radius: 5%;"> -->
 								<figure style="float: left;">
-									<img id="inputImg" src="example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-4" style="border-radius: 5%;" width="550px">
+									<img id="inputImg" src="img/example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-4" style="border-radius: 5%;" width="550px">
 									<figcaption style="text-align: center; margin-top: 1em;">				
 										<a
 										href="#" onclick="openFilePicker()"
@@ -223,10 +223,10 @@
 
 								<!-- Output Image -->
 								<figure style="float: right;">
-									<img id="outputImg" src="example.jpg" alt="Output Image - Comperssed Input Image" class="mt-4" style="border-radius: 5%;" width="550px">
+									<img id="outputImg" src="img/example.jpg" alt="Output Image - Comperssed Input Image" class="mt-4" style="border-radius: 5%;" width="550px">
 									<figcaption style="text-align: center; margin-top: 1em;">				
 										<a
-										href="example.jpg" download="Result.jpg"
+										href="img/example.jpg" download="Result.jpg"
 										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 										><i class="fas fa-angle-down fa-sm text-white-50"></i> Download Result</a>
 								</figcaption>
@@ -252,6 +252,13 @@
       <!-- End of Content Wrapper -->
     </div>
 
+		<script src="js/favicon.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
+
+		<!-- Compression Scripts -->
+		<script src="js/compression/compression.js"></script>
+		<script src="js/compression/standard-compression.js"></script>
+		<script src="js/compression/custom-compression.js"></script>
 
 		<!-- Make the Quality Slider work -->
 		<script src="js/slider.js"></script>

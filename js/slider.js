@@ -5,7 +5,8 @@ output.innerHTML = "Quality: " + slider.value + "%"; // Display the default slid
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
   output.innerHTML = "Quality: " + this.value + "%";
+	standardCompression();
 } 
 
-slider.value= 90;
+slider.value = 90;
 output.innerHTML = "Quality: " + slider.value + "%";

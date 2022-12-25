@@ -12,6 +12,7 @@ function enableMatrix() {
 			document.getElementById("m"+i+j).removeAttribute("disabled");
 		}
 	}
+	customCompression();
 }
 
 function disableSlider() {
@@ -20,6 +21,7 @@ function disableSlider() {
 
 function enableSlider() {
 	document.getElementById("qSlider").removeAttribute("disabled");
+	standardCompression();
 }
 
 document.getElementById("standardRadio").checked = true;
