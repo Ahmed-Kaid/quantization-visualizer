@@ -2,7 +2,9 @@ const hiddenImgUpload = document.querySelector("#hiddenImgUpload")
 var uploaded_image = "";
 
 hiddenImgUpload.addEventListener("change", function(){
-	
+
+	// Read uploaded image and replace left image with it
+
 	const reader = new FileReader();
 	
 	reader.addEventListener("load", () =>  {
@@ -13,5 +15,7 @@ hiddenImgUpload.addEventListener("change", function(){
 	})
 
 	reader.readAsDataURL(this.files[0]);
+
+	// Start compression with current image
 
 })

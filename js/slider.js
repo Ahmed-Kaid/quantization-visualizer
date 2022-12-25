@@ -6,3 +6,6 @@ output.innerHTML = "Quality: " + slider.value + "%"; // Display the default slid
 slider.oninput = function() {
   output.innerHTML = "Quality: " + this.value + "%";
 } 
+
+slider.value= 90;
+output.innerHTML = "Quality: " + slider.value + "%";

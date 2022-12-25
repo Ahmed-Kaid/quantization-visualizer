@@ -35,22 +35,18 @@
         class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
-        <!-- Sidebar - Brand -->
+        <!-- Sidebar - Title -->
         <a
           class="sidebar-brand d-flex align-items-center justify-content-center"
           href="index.html"
         >
-          <div class="sidebar-brand-icon rotate-n-15"></div>
           <div class="sidebar-brand-text mx-3">Quantization Visualizer</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Project</div>
-
-        <!-- Nav Item - Dashboard -->
+        <!-- Nav Item - Quantization -->
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
             <!-- <i class="fa-solid fa-angle-down"></i> -->
@@ -95,107 +91,116 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
 
-        <div class="row">
+        <div class="row mt-3">
 
-					<div class="col-xl col-lg mt-4">
+					<div class="col-xl col-lg">
 						<div class="card shadow mb-2">
 							<!-- Card Body -->
 							<div class="card-body">
 								<!-- Quantization Slider -->
 								<div>
-									<input type="range" min="1" max="100" value="90" class="slider" id="qSlider" style="width:100%;">
-									<p id="qSliderText" style="text-align: center;"></p>
+									<input type="radio" style="height: 1em;" name="compressionRadio" value="standard" checked  id="standardRadio" onchange="
+										disableMatrix();
+										enableSlider();
+									"><label onclick="document.getElementById('standardRadio').click()">Standard Compression</label>
+									
+									<input type="range" min="1" max="100" value="90" class="slider" id="qSlider" style="width:80%; display: inline-block; margin-left: 2cm;">
+									<p id="qSliderText" style="text-align: center; margin-left: 15%;"></p>
 								</div>
 								<!-- Quantization Matrix -->
 								
+								<input class="mt-0" type="radio" style="height: 1em;" name="compressionRadio" value="custom" id="customRadio" checked="unchecked" onchange="
+										disableSlider();
+										enableMatrix();
+									"><label onclick="document.getElementById('customRadio').click()">Custom Compression</label>
 								<div align=center>
 									<table class="matrix">
 											<tr>
-													<td><input id="m11" type='number' value="16"></td>
-													<td><input id="m12" type='number' value="11"></td>
-													<td><input id="m13" type='number' value="10"></td>
-													<td><input id="m14" type='number' value="16"></td>
-													<td><input id="m15" type='number' value="24"></td>
-													<td><input id="m16" type='number' value="40"></td>
-													<td><input id="m17" type='number' value="51"></td>
-													<td><input id="m18" type='number' value="61"></td>
+													<td><input id="m11" type='number' value="16" disabled="true"></td>
+													<td><input id="m12" type='number' value="11" disabled="true"></td>
+													<td><input id="m13" type='number' value="10" disabled="true"></td>
+													<td><input id="m14" type='number' value="16" disabled="true"></td>
+													<td><input id="m15" type='number' value="24" disabled="true"></td>
+													<td><input id="m16" type='number' value="40" disabled="true"></td>
+													<td><input id="m17" type='number' value="51" disabled="true"></td>
+													<td><input id="m18" type='number' value="61" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m21" type='number' value="12"></td>
-												<td><input id="m22" type='number' value="12"></td>
-												<td><input id="m23" type='number' value="14"></td>
-												<td><input id="m24" type='number' value="19"></td>
-												<td><input id="m25" type='number' value="26"></td>
-												<td><input id="m26" type='number' value="58"></td>
-												<td><input id="m27" type='number' value="60"></td>
-												<td><input id="m28" type='number' value="55"></td>
+												<td><input id="m21" type='number' value="12" disabled="true"></td>
+												<td><input id="m22" type='number' value="12" disabled="true"></td>
+												<td><input id="m23" type='number' value="14" disabled="true"></td>
+												<td><input id="m24" type='number' value="19" disabled="true"></td>
+												<td><input id="m25" type='number' value="26" disabled="true"></td>
+												<td><input id="m26" type='number' value="58" disabled="true"></td>
+												<td><input id="m27" type='number' value="60" disabled="true"></td>
+												<td><input id="m28" type='number' value="55" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m31" type='number' value="14"></td>
-												<td><input id="m32" type='number' value="13"></td>
-												<td><input id="m33" type='number' value="16"></td>
-												<td><input id="m34" type='number' value="24"></td>
-												<td><input id="m35" type='number' value="40"></td>
-												<td><input id="m36" type='number' value="57"></td>
-												<td><input id="m37" type='number' value="69"></td>
-												<td><input id="m38" type='number' value="56"></td>
+												<td><input id="m31" type='number' value="14" disabled="true"></td>
+												<td><input id="m32" type='number' value="13" disabled="true"></td>
+												<td><input id="m33" type='number' value="16" disabled="true"></td>
+												<td><input id="m34" type='number' value="24" disabled="true"></td>
+												<td><input id="m35" type='number' value="40" disabled="true"></td>
+												<td><input id="m36" type='number' value="57" disabled="true"></td>
+												<td><input id="m37" type='number' value="69" disabled="true"></td>
+												<td><input id="m38" type='number' value="56" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m41" type='number' value="14"></td>
-												<td><input id="m42" type='number' value="17"></td>
-												<td><input id="m43" type='number' value="22"></td>
-												<td><input id="m44" type='number' value="29"></td>
-												<td><input id="m45" type='number' value="51"></td>
-												<td><input id="m46" type='number' value="87"></td>
-												<td><input id="m47" type='number' value="80"></td>
-												<td><input id="m48" type='number' value="62"></td>
+												<td><input id="m41" type='number' value="14" disabled="true"></td>
+												<td><input id="m42" type='number' value="17" disabled="true"></td>
+												<td><input id="m43" type='number' value="22" disabled="true"></td>
+												<td><input id="m44" type='number' value="29" disabled="true"></td>
+												<td><input id="m45" type='number' value="51" disabled="true"></td>
+												<td><input id="m46" type='number' value="87" disabled="true"></td>
+												<td><input id="m47" type='number' value="80" disabled="true"></td>
+												<td><input id="m48" type='number' value="62" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m51" type='number' value="18"></td>
-												<td><input id="m52" type='number' value="22"></td>
-												<td><input id="m53" type='number' value="37"></td>
-												<td><input id="m54" type='number' value="56"></td>
-												<td><input id="m55" type='number' value="68"></td>
-												<td><input id="m56" type='number' value="109"></td>
-												<td><input id="m57" type='number' value="103"></td>
-												<td><input id="m58" type='number' value="77"></td>
+												<td><input id="m51" type='number' value="18" disabled="true"></td>
+												<td><input id="m52" type='number' value="22" disabled="true"></td>
+												<td><input id="m53" type='number' value="37" disabled="true"></td>
+												<td><input id="m54" type='number' value="56" disabled="true"></td>
+												<td><input id="m55" type='number' value="68" disabled="true"></td>
+												<td><input id="m56" type='number' value="109" disabled="true"></td>
+												<td><input id="m57" type='number' value="103" disabled="true"></td>
+												<td><input id="m58" type='number' value="77" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m61" type='number' value="24"></td>
-												<td><input id="m62" type='number' value="35"></td>
-												<td><input id="m63" type='number' value="55"></td>
-												<td><input id="m64" type='number' value="64"></td>
-												<td><input id="m65" type='number' value="81"></td>
-												<td><input id="m66" type='number' value="104"></td>
-												<td><input id="m67" type='number' value="113"></td>
-												<td><input id="m68" type='number' value="92"></td>
+												<td><input id="m61" type='number' value="24" disabled="true"></td>
+												<td><input id="m62" type='number' value="35" disabled="true"></td>
+												<td><input id="m63" type='number' value="55" disabled="true"></td>
+												<td><input id="m64" type='number' value="64" disabled="true"></td>
+												<td><input id="m65" type='number' value="81" disabled="true"></td>
+												<td><input id="m66" type='number' value="104" disabled="true"></td>
+												<td><input id="m67" type='number' value="113" disabled="true"></td>
+												<td><input id="m68" type='number' value="92" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m71" type='number' value="49"></td>
-												<td><input id="m72" type='number' value="64"></td>
-												<td><input id="m73" type='number' value="78"></td>
-												<td><input id="m74" type='number' value="87"></td>
-												<td><input id="m75" type='number' value="103"></td>
-												<td><input id="m76" type='number' value="121"></td>
-												<td><input id="m77" type='number' value="120"></td>
-												<td><input id="m78" type='number' value="101"></td>
+												<td><input id="m71" type='number' value="49" disabled="true"></td>
+												<td><input id="m72" type='number' value="64" disabled="true"></td>
+												<td><input id="m73" type='number' value="78" disabled="true"></td>
+												<td><input id="m74" type='number' value="87" disabled="true"></td>
+												<td><input id="m75" type='number' value="103" disabled="true"></td>
+												<td><input id="m76" type='number' value="121" disabled="true"></td>
+												<td><input id="m77" type='number' value="120" disabled="true"></td>
+												<td><input id="m78" type='number' value="101" disabled="true"></td>
 											</tr>
 
 											<tr>
-												<td><input id="m81" type='number' value="72"></td>
-												<td><input id="m82" type='number' value="92"></td>
-												<td><input id="m83" type='number' value="95"></td>
-												<td><input id="m84" type='number' value="98"></td>
-												<td><input id="m85" type='number' value="112"></td>
-												<td><input id="m86" type='number' value="100"></td>
-												<td><input id="m87" type='number' value="103"></td>
-												<td><input id="m88" type='number' value="99"></td>
+												<td><input id="m81" type='number' value="72" disabled="true"></td>
+												<td><input id="m82" type='number' value="92" disabled="true"></td>
+												<td><input id="m83" type='number' value="95" disabled="true"></td>
+												<td><input id="m84" type='number' value="98" disabled="true"></td>
+												<td><input id="m85" type='number' value="112" disabled="true"></td>
+												<td><input id="m86" type='number' value="100" disabled="true"></td>
+												<td><input id="m87" type='number' value="103" disabled="true"></td>
+												<td><input id="m88" type='number' value="99" disabled="true"></td>
 											</tr>
 									</table>
 								</div>
@@ -203,7 +208,7 @@
 								<!-- Input Image -->
 								<!-- <img src="example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-5" style="border-radius: 5%;"> -->
 								<figure style="float: left;">
-									<img id="inputImg" src="example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-5" style="border-radius: 5%;">
+									<img id="inputImg" src="example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-4" style="border-radius: 5%;" width="550px">
 									<figcaption style="text-align: center; margin-top: 1em;">				
 										<a
 										href="#" onclick="openFilePicker()"
@@ -218,7 +223,7 @@
 
 								<!-- Output Image -->
 								<figure style="float: right;">
-									<img id="outputImg" src="example.jpg" alt="Output Image - Comperssed Input Image" class="mt-5" style="border-radius: 5%;">
+									<img id="outputImg" src="example.jpg" alt="Output Image - Comperssed Input Image" class="mt-4" style="border-radius: 5%;" width="550px">
 									<figcaption style="text-align: center; margin-top: 1em;">				
 										<a
 										href="example.jpg" download="Result.jpg"
@@ -238,7 +243,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Made by Ahmed Kaid for "Seminar: Data Comperssion" with Dr. The Anh Vuong (2022)</span>
+              <span style="white-space:pre-line">Made by Ahmed Kaid for "Seminar: Data Comperssion"	with Dr. The Anh Vuong at the Johann Wolfgang Goethe University - Frankfurt am Main, Germany (2022)</span>
             </div>
           </div>
         </footer>
@@ -246,56 +251,17 @@
       </div>
       <!-- End of Content Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
-          </div>
-          <div class="modal-footer">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
 		<!-- Make the Quality Slider work -->
 		<script src="js/slider.js"></script>
+
+		<!-- Upload -->
 		<script src="js/fileupload.js"></script>
 		<script src="js/custom-image.js"></script>
+
+		<!-- Choose between standard or custom compression -->
+		<script src="js/radio-button.js"></script>
 
 		<!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -307,11 +273,5 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
-
-    <!-- Page level custom scripts -->
-    <!-- <script src="js/demo/chart-area-demo.js"></script> -->
-    <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
   </body>
 </html>
