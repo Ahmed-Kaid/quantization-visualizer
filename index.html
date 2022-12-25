@@ -226,7 +226,7 @@
 									<img id="outputImg" src="img/example.jpg" alt="Output Image - Comperssed Input Image" class="mt-4" style="border-radius: 5%;" width="550px">
 									<figcaption style="text-align: center; margin-top: 1em;">				
 										<a
-										href="img/example.jpg" download="Result.jpg"
+										id="download" href="img/example.jpg" download="Result.jpg"
 										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
 										><i class="fas fa-angle-down fa-sm text-white-50"></i> Download Result</a>
 								</figcaption>
@@ -253,7 +253,10 @@
     </div>
 
 		<script src="js/favicon.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
+		<script src="node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
+
+		<script src="js/example.js"></script>
 
 		<!-- Compression Scripts -->
 		<script src="js/compression/compression.js"></script>

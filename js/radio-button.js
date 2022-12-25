@@ -27,4 +27,4 @@ function enableSlider() {
 document.getElementById("standardRadio").checked = true;
 document.getElementById("customRadio").checked = false;
 disableMatrix();
-enableSlider();
+document.getElementById("qSlider").removeAttribute("disabled");

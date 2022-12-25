@@ -15,6 +15,8 @@ hiddenImgUpload.addEventListener("change", function(){
 	})
 
 	reader.readAsDataURL(this.files[0]);
+	
+	file = this.files[0]
 
 	// Start compression with current image
 
