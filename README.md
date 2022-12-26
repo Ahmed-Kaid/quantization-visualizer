@@ -32,3 +32,5 @@ Special Thanks to:
 - [Start Bootstrap](https://github.com/startbootstrap) for their Template [SB Admin 2](https://github.com/startbootstrap/startbootstrap-sb-admin-2)
 
 - [wanger](https://github.com/WangYuLue/) for their library [image-conversion](https://github.com/WangYuLue/image-conversion)
+
+- [bellbind](https://gist.github.com/bellbind) for [this gist](https://gist.github.com/bellbind/eb3419516e00fdfa13f472d82fd1b495)
