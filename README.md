@@ -11,7 +11,7 @@ A simple interactive website to visualize the quantization technique used in JPE
 
 ## Download
 
-To download this project, you can use one of the following steps:
+To download this project, use one of the following steps:
 
 - Clone this repository `git clone https://github.com/Ahmed-Kaid/quantization-visualizer.git`
 - Download the latest release
