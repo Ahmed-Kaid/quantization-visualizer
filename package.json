@@ -1,10 +1,9 @@
 {
   "dependencies": {
-    "blueimp-canvas-to-blob": "^3.29.0",
     "http-server": "^14.1.1",
     "image-conversion": "^2.1.1"
   },
-	"scripts": {
-		"start": "./node_modules/.bin/http-server"
-	}
+  "scripts": {
+    "start": "./node_modules/.bin/http-server"
+  }
 }

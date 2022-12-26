@@ -27,3 +27,7 @@ hiddenImgUpload.addEventListener("change", function(){
 	}
 
 })
+
+function openFilePicker(){
+	hiddenImgUpload.click();
+}

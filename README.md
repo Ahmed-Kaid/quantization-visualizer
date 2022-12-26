@@ -4,16 +4,10 @@ A simple interactive website to visualize the quantization technique used in JPE
 
 ## Requirements
 
-- NodeJS
+- NodeJS (https://nodejs.org/)
 
-- A modern Browser:
-  - Chrome >= 60
-  - Firefox >= 60
-  - Edge >= 15.15063
-  - iOS >= 10
-  - Safari >= 10
-  - Android >= 6
-  - not ExplorerMobile <= 11
+- A modern web browser
+  (Chrome ≥ 60, Firefox ≥ 60, Edge ≥ 15.15063, iOS ≥ 10, Safari ≥ 10, Android ≥ 6)
 
 ## Download
 
@@ -29,8 +23,12 @@ After downloading, run `npm install` in the root directory to install all depend
 
 To open up the site with everything working as intended (🤞), run `npm start` in the root directory.
 
+**Note**: The fact that the matrix on custom compression stays the same after reload is intended. To reset the matrix, you can Hard reload the website (usually with `CTRL+F5`).
+
 ## Credits
 
-- [StartBootstrap](https://github.com/startbootstrap) for their Template [SB Admin 2](https://github.com/startbootstrap/startbootstrap-sb-admin-2)
+Special Thanks to:
 
-- [blueimp](https://github.com/blueimp/) for their function [JavaScript-Canvas-to-Blob](https://github.com/blueimp/JavaScript-Canvas-to-Blob)
+- [Start Bootstrap](https://github.com/startbootstrap) for their Template [SB Admin 2](https://github.com/startbootstrap/startbootstrap-sb-admin-2)
+
+- [wanger](https://github.com/WangYuLue/) for their library [image-conversion](https://github.com/WangYuLue/image-conversion)
