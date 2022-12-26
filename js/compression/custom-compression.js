@@ -1,12 +1,16 @@
 // const { dataURLtoFile } = require("image-conversion");
 
 function customCompression() {
-	// console.log("Custom Compression");
+	// //console.log("Custom Compression");
 	// Convert Input to JPG, so we can unpack it (from "js/compression/compression.js")
+	const outputImg = document.getElementById("outputImg");
 	var img = new Image();
 	img.src = document.getElementById("inputImg").getAttribute("src");
 
-	inputToJpg();
+	outputImg.setAttribute("src", "")
+	outputImg.setAttribute("alt", "Custom Compression is running... Please wait.")
+
+	// inputToJpg();
 	
 	qmat = []; // Generate quantization Matrix from user input 
 
@@ -16,17 +20,17 @@ function customCompression() {
 		}
 	}
 
-	console.log(file);
+	//console.log(file);
 
 	img.addEventListener("load", _ev => {        flow(function* () {
-		console.log("doing something")
+		//console.log("doing something")
 		const raw = document.createElement("canvas");
 		raw.width = img.width; raw.height = img.height;
 		const raw2d = raw.getContext("2d");
 		raw2d.drawImage(img, 0, 0);
-		append(raw, "Raw Image");
+		// append(raw, "Raw Image");
 		yield wait();
-		console.log("doing something 2")
+		//console.log("doing something 2")
 		const rawdata = raw2d.getImageData(0, 0, raw.width, raw.height);
 		//addCanvas(diff(rawdata, rawdata), "DIFF RAW: RAW");
 		const rgbdata = imagedata2rgb(rawdata);
@@ -35,8 +39,8 @@ function customCompression() {
 		{
 				const rgbFromYuv = yuv2rgb(yuvdata);
 				const imagedata = rgb2imagedata(rgbFromYuv);
-				addCanvas(imagedata, "YUV Converted");
-				addCanvas(diff(imagedata, rawdata), "DIFF RAW: YUV Converted");
+				// addCanvas(imagedata, "YUV Converted");
+				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: YUV Converted");
 				imageyuv = imagedata;
 				yield wait();
 		}
@@ -55,9 +59,9 @@ function customCompression() {
 				const merged = concat(idcts);
 				const rgbFromYuv = yuv2rgb(merged);
 				const imagedata = rgb2imagedata(rgbFromYuv);
-				addCanvas(imagedata, "DCT Converted");
-				addCanvas(diff(imagedata, rawdata), "DIFF RAW: DCT Converted");
-				addCanvas(diff(imagedata, imageyuv), "DIFF YUV: DCT Converted");
+				// addCanvas(imagedata, "DCT Converted");
+				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: DCT Converted");
+				// addCanvas(diff(imagedata, imageyuv), "DIFF YUV: DCT Converted");
 				imagedct = imagedata;
 				yield wait();
 		}
@@ -68,20 +72,22 @@ function customCompression() {
 				const merged = concat(idcts);
 				const rgbFromYuv = yuv2rgb(merged);
 				const imagedata = rgb2imagedata(rgbFromYuv);
-				addCanvas(imagedata, "Quantized");
-				addCanvas(diff(imagedata, rawdata), "DIFF RAW: Quantized");
-				addCanvas(diff(imagedata, imageyuv), "DIFF YUV: Quantized");
-				addCanvas(diff(imagedata, imagedct), "DIFF DCT: Quantized");
-				console.log(imagedata)
+				// addCanvas(imagedata, "Quantized");
+				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: Quantized");
+				// addCanvas(diff(imagedata, imageyuv), "DIFF YUV: Quantized");
+				// addCanvas(diff(imagedata, imagedct), "DIFF DCT: Quantized");
+				//console.log(imagedata)
 				var out = imagedata_to_image(imagedata);
-				console.log("Out:");
-				console.log(out.src);
+				//console.log("Out:");
+				//console.log(out.src);
 
 				var urlCreator = window.URL || window.webkitURL;
 
 				imageConversion.dataURLtoFile(out.src).then(res => {
+					//console.log(res);
 					document.getElementById("outputImg").setAttribute("src", urlCreator.createObjectURL(res));
-					console.log("Fully done!");
+					document.getElementById("download").setAttribute("href", urlCreator.createObjectURL(res));
+					//console.log("Fully done!");
 				})
 
 			}
@@ -230,6 +236,7 @@ function imagedata_to_image(imagedata) {
 	ctx.putImageData(imagedata, 0, 0);
 
 	var image = new Image();
-	image.src = canvas.toDataURL();
+	image.src = canvas.toDataURL("image/jpeg");
+	//console.log(image);
 	return image;
 }

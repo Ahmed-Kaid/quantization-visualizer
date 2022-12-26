@@ -18,6 +18,8 @@ hiddenImgUpload.addEventListener("change", function(){
 	
 	file = this.files[0]
 
+	inputToJpg();
+
 	// Start compression with current image
 
 	if (document.getElementById("standardRadio").checked) {
