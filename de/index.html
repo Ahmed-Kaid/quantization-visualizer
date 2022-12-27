@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Ahmed Kaid" />
+
+    <title>Quantisierungs-Visualisierer</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../img/light.ico" id="faviconTag">
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="../vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.css" rel="stylesheet" />
+  </head>
+
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Title -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-text mx-3">Quantisierungs-Visualisierer</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Quantization -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Quantisierung</span
+            ></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Info</div>
+
+        <!-- Nav Item - About -->
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            <i class="fas fa-fw fa-comments"></i>
+            <span>Über dieses Projekt</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Credits -->
+        <li class="nav-item">
+          <a class="nav-link" href="credits.html">
+            <i class="fas fa-fw fa-cogs"></i>
+            <span>Anerkennungen</span></a
+          >
+        </li>
+
+				<hr class="sidebar-divider" />
+
+				<li class="nav-item">
+					<a class="nav-link" href="../en/index.html">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Switch to English</span></a
+          >
+				</li>
+
+      </ul>
+      <!-- End of Sidebar -->
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+
+        <div class="row mt-3">
+
+					<div class="col-xl col-lg">
+						<div class="card shadow mb-2">
+							<!-- Card Body -->
+							<div class="card-body">
+								<!-- Quantization Slider -->
+								<div>
+									<input type="radio" style="height: 1em;" name="compressionRadio" value="standard" checked  id="standardRadio" onchange="
+										disableMatrix();
+										enableSlider();
+									"><label onclick="document.getElementById('standardRadio').click()">Standard Kompression</label>
+									
+									<input type="range" min="1" max="100" value="90" class="slider" id="qSlider" style="width:80%; display: inline-block; margin-left: 2cm;">
+									<p id="qSliderText" style="text-align: center; margin-left: 15%;"></p>
+								</div>
+								<!-- Quantization Matrix -->
+								
+								<input class="mt-0" type="radio" style="height: 1em;" name="compressionRadio" value="custom" id="customRadio" checked="unchecked" onchange="
+										disableSlider();
+										enableMatrix();
+									"><label onclick="document.getElementById('customRadio').click()">Benutzerdefinierte Kompression</label>
+								<div align=center>
+									<table class="matrix">
+											<tr>
+													<td><input id="m11" type='number' value="16" disabled="true"></td>
+													<td><input id="m12" type='number' value="11" disabled="true"></td>
+													<td><input id="m13" type='number' value="10" disabled="true"></td>
+													<td><input id="m14" type='number' value="16" disabled="true"></td>
+													<td><input id="m15" type='number' value="24" disabled="true"></td>
+													<td><input id="m16" type='number' value="40" disabled="true"></td>
+													<td><input id="m17" type='number' value="51" disabled="true"></td>
+													<td><input id="m18" type='number' value="61" disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m21" type='number' value="12" disabled="true"></td>
+												<td><input id="m22" type='number' value="12" disabled="true"></td>
+												<td><input id="m23" type='number' value="14" disabled="true"></td>
+												<td><input id="m24" type='number' value="19" disabled="true"></td>
+												<td><input id="m25" type='number' value="26" disabled="true"></td>
+												<td><input id="m26" type='number' value="58" disabled="true"></td>
+												<td><input id="m27" type='number' value="60" disabled="true"></td>
+												<td><input id="m28" type='number' value="55" disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m31" type='number' value="14" disabled="true"></td>
+												<td><input id="m32" type='number' value="13" disabled="true"></td>
+												<td><input id="m33" type='number' value="16" disabled="true"></td>
+												<td><input id="m34" type='number' value="24" disabled="true"></td>
+												<td><input id="m35" type='number' value="40" disabled="true"></td>
+												<td><input id="m36" type='number' value="57" disabled="true"></td>
+												<td><input id="m37" type='number' value="69" disabled="true"></td>
+												<td><input id="m38" type='number' value="56" disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m41" type='number' value="14" disabled="true"></td>
+												<td><input id="m42" type='number' value="17" disabled="true"></td>
+												<td><input id="m43" type='number' value="22" disabled="true"></td>
+												<td><input id="m44" type='number' value="29" disabled="true"></td>
+												<td><input id="m45" type='number' value="51" disabled="true"></td>
+												<td><input id="m46" type='number' value="87" disabled="true"></td>
+												<td><input id="m47" type='number' value="80" disabled="true"></td>
+												<td><input id="m48" type='number' value="62" disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m51" type='number' value="18"  disabled="true"></td>
+												<td><input id="m52" type='number' value="22"  disabled="true"></td>
+												<td><input id="m53" type='number' value="37"  disabled="true"></td>
+												<td><input id="m54" type='number' value="56"  disabled="true"></td>
+												<td><input id="m55" type='number' value="68"  disabled="true"></td>
+												<td><input id="m56" type='number' value="109" disabled="true"></td>
+												<td><input id="m57" type='number' value="103" disabled="true"></td>
+												<td><input id="m58" type='number' value="77"  disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m61" type='number' value="24"  disabled="true"></td>
+												<td><input id="m62" type='number' value="35"  disabled="true"></td>
+												<td><input id="m63" type='number' value="55"  disabled="true"></td>
+												<td><input id="m64" type='number' value="64"  disabled="true"></td>
+												<td><input id="m65" type='number' value="81"  disabled="true"></td>
+												<td><input id="m66" type='number' value="104" disabled="true"></td>
+												<td><input id="m67" type='number' value="113" disabled="true"></td>
+												<td><input id="m68" type='number' value="92"  disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m71" type='number' value="49"  disabled="true"></td>
+												<td><input id="m72" type='number' value="64"  disabled="true"></td>
+												<td><input id="m73" type='number' value="78"  disabled="true"></td>
+												<td><input id="m74" type='number' value="87"  disabled="true"></td>
+												<td><input id="m75" type='number' value="103" disabled="true"></td>
+												<td><input id="m76" type='number' value="121" disabled="true"></td>
+												<td><input id="m77" type='number' value="120" disabled="true"></td>
+												<td><input id="m78" type='number' value="101" disabled="true"></td>
+											</tr>
+
+											<tr>
+												<td><input id="m81" type='number' value="72"  disabled="true"></td>
+												<td><input id="m82" type='number' value="92"  disabled="true"></td>
+												<td><input id="m83" type='number' value="95"  disabled="true"></td>
+												<td><input id="m84" type='number' value="98"  disabled="true"></td>
+												<td><input id="m85" type='number' value="112" disabled="true"></td>
+												<td><input id="m86" type='number' value="100" disabled="true"></td>
+												<td><input id="m87" type='number' value="103" disabled="true"></td>
+												<td><input id="m88" type='number' value="99"  disabled="true"></td>
+											</tr>
+									</table>
+									<a id="runButton" style="visibility: hidden;" href="#" onclick="customCompression()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm mt-3"><i class="fas fa-cogs"></i> Benutzerdefinierte Kompression ausführen</a>
+								</div>
+								
+								<!-- Input Image -->
+								<figure style="float: left;">
+									<img id="inputImg" src="../img/example.jpg" alt="Input Image (Cat in Nature by default)" class="mt-4" style="border-radius: 5%;" width="550px">
+									<figcaption style="text-align: center; margin-top: 1em;">				
+										<a
+										href="#" onclick="openFilePicker()"
+										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+										><i class="fas fa-angle-up fa-sm text-white-50"></i> Bild hochladen</a>
+								</figcaption>
+								</figure>
+
+								<!-- Hidden File Picker because the standard one is ugly. Used in js/fileupload.js -->
+								<input type="file" style="visibility: hidden;" id="hiddenImgUpload" name="Input Image" accept="image/*">
+
+
+								<!-- Output Image -->
+								<figure style="float: right;">
+									<img id="outputImg" src="../img/example.jpg" alt="Output Image - Comperssed Input Image" class="mt-4" style="border-radius: 5%;" width="550px">
+									<figcaption style="text-align: center; margin-top: 1em;">				
+										<a
+										id="download" href="img/example.jpg" download="Result.jpg"
+										class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+										><i class="fas fa-angle-down fa-sm text-white-50"></i> Ergebnis herunterladen</a>
+								</figcaption>
+								</figure>
+								
+							</div>
+						</div>
+					</div>
+					
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span style="white-space:pre-line">Von Ahmed Kaid für das "Seminar: Datenkompression" unter Dr. The Anh Vuong entwickelt, an der Johann Wolfang Goethe Universität, Frankfurt am Main (2022-23)</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+
+		<script src="../js/favicon.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
+		<script src="../js/compression/custom-compression/algorithms.js"></script>
+
+		<!-- Compression Scripts -->
+		<script src="../js/compression/compression.js"></script>
+		<script src="../js/compression/standard-compression.js"></script>
+		<script src="../js/compression/custom-compression.js"></script>
+
+		<!-- Make the Quality Slider work -->
+		<script src="../js/slider.js"></script>
+
+		<!-- Upload -->
+		<script src="../js/custom-image.js"></script>
+
+		<!-- Choose between standard or custom compression -->
+		<script src="../js/radio-button.js"></script>
+
+		<!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
+
+  </body>
+</html>

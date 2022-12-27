@@ -8,8 +8,11 @@ function customCompression() {
 	img.src = document.getElementById("inputImg").getAttribute("src");
 
 	outputImg.setAttribute("src", "")
-	outputImg.setAttribute("alt", "Custom Compression is running... Please wait.")
-
+	if (window.location.pathname.startsWith("/de")) {
+		outputImg.setAttribute("alt", "Benutzerdefinierte Kompression läuft... Bitte warten.")
+	} else {
+		outputImg.setAttribute("alt", "Custom Compression is running... Please wait.")
+	}
 	// inputToJpg();
 	
 	qmat = []; // Generate quantization Matrix from user input 

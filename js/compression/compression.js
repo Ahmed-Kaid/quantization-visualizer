@@ -1,4 +1,4 @@
-fetch("img/example.jpg").then(res => res.blob()).then(blob => file = blob).then(file => file.name = "example.jpg");
+fetch("../img/example.jpg").then(res => res.blob()).then(blob => file = blob).then(file => file.name = "example.jpg");
 
 function inputToJpg() {
 	var urlCreator = window.URL || window.webkitURL;

@@ -10,11 +10,11 @@
     <meta name="author" content="Ahmed Kaid" />
 
     <title>Quantization Visualizer</title>
-		<link rel="shortcut icon" type="image/x-icon" href="img/light.ico" id="faviconTag">
+		<link rel="shortcut icon" type="image/x-icon" href="../img/light.ico" id="faviconTag">
 
     <!-- Custom fonts for this template-->
     <link
-      href="vendor/fontawesome-free/css/all.min.css"
+      href="../vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -24,7 +24,7 @@
     />
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css" rel="stylesheet" />
+    <link href="../css/sb-admin-2.css" rel="stylesheet" />
   </head>
 
 
@@ -50,14 +50,8 @@
         <!-- Nav Item - Quantization -->
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
-            <!-- <i class="fa-solid fa-angle-down"></i> -->
-            <img
-              src="vendor/fontawesome-free/svgs/regular/image.svg"
-              width="8%"
-              height="8%"
-            />
-            <span style="display: inline; margin-left: 0.15cm"
-              >Quantization</span
+            <i class="fas fa-fw fa-image"></i>
+            <span>Quantization</span
             ></a
           >
         </li>
@@ -83,6 +77,17 @@
             <span>Credits</span></a
           >
         </li>
+
+				<hr class="sidebar-divider" />
+
+
+				<li class="nav-item">
+					<a class="nav-link" href="../de/about.html">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Auf Deutsch wechseln</span></a
+          >
+				</li>
+
       </ul>
       <!-- End of Sidebar -->
       <!-- Content Wrapper -->
@@ -98,8 +103,9 @@
 						<div class="card shadow mb-2">
 							<!-- Card Body -->
 							<div class="card-body">
-								<!-- TODO -->
-								To be Done
+								
+								
+								
 							</div>
 						</div>
 					</div>
@@ -111,7 +117,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span style="white-space:pre-line">Made by Ahmed Kaid for "Seminar: Data Comperssion"	with Dr. The Anh Vuong at the Johann Wolfgang Goethe University - Frankfurt am Main, Germany (2022)</span>
+              <span style="white-space:pre-line">Made by Ahmed Kaid for "Seminar: Data Comperssion"	with Dr. The Anh Vuong at the Johann Wolfgang Goethe University - Frankfurt am Main, Germany (2022-23)</span>
             </div>
           </div>
         </footer>
@@ -120,17 +126,33 @@
       <!-- End of Content Wrapper -->
     </div>
 
-		<script src="js/favicon.js"></script>
+		<script src="../js/favicon.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
+		<script src="../js/compression/custom-compression/algorithms.js"></script>
+
+		<!-- Compression Scripts -->
+		<script src="../js/compression/compression.js"></script>
+		<script src="../js/compression/standard-compression.js"></script>
+		<script src="../js/compression/custom-compression.js"></script>
+
+		<!-- Make the Quality Slider work -->
+		<script src="../js/slider.js"></script>
+
+		<!-- Upload -->
+		<script src="../js/custom-image.js"></script>
+
+		<!-- Choose between standard or custom compression -->
+		<script src="../js/radio-button.js"></script>
 
 		<!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
   </body>
 </html>

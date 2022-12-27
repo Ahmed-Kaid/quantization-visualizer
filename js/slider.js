@@ -1,6 +1,14 @@
 var slider = document.getElementById("qSlider");
 var output = document.getElementById("qSliderText");
-output.innerHTML = "Quality: " + slider.value + "%"; // Display the default slider value
+var qString = "";
+
+if (window.location.pathname.startsWith("/de")) {
+	qString = "Qualität: ";
+} else {
+	qString = "Quality: ";
+}
+
+output.innerHTML = qString + slider.value + "%"; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
@@ -9,4 +17,4 @@ slider.oninput = function() {
 } 
 
 slider.value = 90;
-output.innerHTML = "Quality: " + slider.value + "%";
+output.innerHTML = qString + slider.value + "%";
