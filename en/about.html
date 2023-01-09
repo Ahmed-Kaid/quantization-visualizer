@@ -90,27 +90,113 @@
 
       </ul>
       <!-- End of Sidebar -->
-      <!-- Content Wrapper -->
-      <div id="content-wrapper" class="d-flex flex-column">
-        <!-- Main Content -->
-        <div id="content">
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
+<!-- Content wrappers -->
+<div id="content-wrapper" class="d-flex flex-column">
+	<!-- Main Content -->
+	<div id="content">
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
 
-        <div class="row mt-3">
+	<div class="row mt-3">
 
-					<div class="col-xl col-lg">
-						<div class="card shadow mb-2">
-							<!-- Card Body -->
-							<div class="card-body">
-								
-								
-								
-							</div>
-						</div>
-					</div>
-					
-        </div>
+<div class="col-xl col-lg">
+<div class="card shadow mb-2">
+<!-- Card Body -->
+<div class="card-body">
+
+<h3>Topic</h3>
+<p>The topic I will cover in this seminar is the JPEG method, an algorithm for compressing digital still images. File formats for such images include JPG and JPEG.</p>
+</div>
+
+<div class="card-body">
+<h3>Theoretical basics</h3>
+
+<p>The idea of data compression is to reduce digital data so that the memory required for it is as small as possible, so that space is saved or the transmission time is reduced.</p>
+<p>In the field of data compression, we now distinguish between lossy and lossless compression. As the name already suggests, parts of the data signal are omitted in the case of lossy compression, since it may be irrelevant for the specific area of application. The special thing about lossless data compression is that the signal is 100% restored after encoding and decoding.</p>
+<p>There is also fractal transmission, which does not find too many areas of application in everyday life, but which can become established over time. To do this, the data is encoded into certain formulas, which then take up less storage space, and are then solved during decoding.</p>
+<p>JPEG compression is probably the most popular example of a lossy data compression technique. The JPEG standard, which was developed by the Joint Photographic Experts Group, describes a method for compressing image files. The body consists of the cooperation of ITU, IEC and ISO, which have already set many standards.</p>
+<p>The purpose of the JPEG method as a lossy data compression method is to ignore image information that humans cannot see well anyway. Humans are very good at recognizing contrasts and differences in brightness, which is why they are almost always saved, but color differences are more difficult for us to recognize, which is why they are the first thing that is left out during compression.</p>
+
+</div>
+
+<div class="card-body">
+
+<h3>Procedure Description</h3>
+<p>JPEG compression takes a digital image as input and outputs a new, compressed digital image after the following steps.</p>
+
+<h5>Step 1: Color Model Conversion</h5>
+<p>Since the colors are stored as RGB values in typical computer images, but as humans (as already mentioned above) we recognize the differences in brightness much more, we have to separate the brightness information and the color information for the compression. The color model used in JPEG is YCbCr, which stores lightness as a single value (Y) and can be converted to from the RGB model very easily, although not exactly.</p>
+<img src="../img/about/fig1.svg" alt-text="RGB to YCbCr conversion calculation"> <figcaption>RGB to YCbCr conversion<br>
+Source: <a href="https://en.wikipedia.org/wiki/JPEG#color model conversion">https://en.wikipedia.org/wiki/JPEG#color model conversion</a> </figcaption>
+<br>
+<img src="../img/about/fig2.jpg" alt-text="Calculation for converting RGB to YCbCr"> <figcaption>An example image split into the respective components of a YCbCr image<br>
+Source: <a href="https://www.robertstocker.co.uk/jpeg/jpeg_new_7.htm">Robert Stocker</a> </figcaption>
+<br>
+<p>The resolution of the Cb and Cr channels is reduced here depending on the process in order to save even more space, but this does not always have to happen.</p>
+
+<h5>Step 2: Blocking and Discrete Cosine Transform (DCT)</h5>
+
+<p>Now we transform our three obtained components Y, Cb and Cr. The process is analog for everyone, so I'll use the brightness range Y as an example.</p>
+
+<p>The entire image is divided into an 8x8 matrix of blocks, from which each block then comes to a set of 64 values using the discrete cosine transform. Each of these values is the strength of a frequency component (see below), which goes from weak to strong as you go further to the right and/or down in the frequency matrix.</p>
+
+<br>
+<img src="../img/about/fig3.jpg" alt-text="RGB to YCbCr conversion calculation"> <figcaption>Frequency matrix<br>
+Source: <a href="https://www.robertstocker.co.uk/jpeg/jpeg_new_9.htm">Robert Stocker</a> </figcaption>
+<br>
+
+<p>The 64 values obtained here as a result are also a matrix representing how often each frequency component is "used".</p>
+
+<h5>Step 3: Quantization</h5>
+<p>Now it's time to quantize. Quantization is the source of most of your loss with this compression.</p>
+
+<p>In fact, the result matrix of each block from step 2 is divided by the quantization matrix. This has larger values in the lower right where (as we know from step 2) the higher frequency components lie, because as humans we are more attentive to lower frequency information.</p>
+
+
+<br>
+<img src="../img/about/fig4.jpg" alt-text="Example of quantization"> <figcaption>Frequency matrix<br>
+Source: <a href="https://www.robertstocker.co.uk/jpeg/jpeg_new_10.htm">Robert Stocker</a> </figcaption>
+<br>
+
+<p>In the demonstration kit, you can edit this matrix either manually or using a quality slider, which then stretches or compresses this matrix.</p>
+
+<h5>Step 4: Reordering and entropy encoding</h5>
+<p>The result matrix of the quantization is now sorted according to a zigzag shape and saved as an array. This form is used because the zeros in the result matrix are often at the bottom right and later we use run-length encoding to further compress the result.</p>
+<br>
+<img src="../img/about/fig5.jpg" alt-text="Example of quantization"> <figcaption>Illustration of the zigzag shape<br>
+Source: <a href="https://en.wikipedia.org/wiki/File:JPEG_ZigZag.jpg">Wikipedia</a> </figcaption>
+<br>
+
+<p>The final step is to use a lossless entropy compression method, often Huffman compression. After doing this for all blocks, the compression is done and we have a JPEG encoded image.</p>
+
+<p>To then decode the resulting image, these steps are reversed. These consist of entropy decoding, resorting, requantization, inverse DCT, color model conversion from YCbCr to RGB (or other color models).</p>
+
+</div>
+
+<div class="card-body">
+
+<h3>Area of application</h3>
+<p>JPEG compression is clearly used in digital image processing.</p>
+<p>For one thing, every relevant operating system supports JPEG image files and, along with PNG, they are the most popular format for sending or storing images. And considering that this format was developed in 1992, that's pretty amazing in our world of fast-paced technology.</p>
+
+</div>
+
+<div class="card-body">
+
+<h3>Quality assessment of the procedure</h3>
+<p>Of course, JPEG compression isn't perfect, like any lossy method, but there's a reason it's still widely used today, and that's because it saves a lot of space, while the perceived quality of the image still remains very good. And while storage isn't that expensive now, people are storing more and more data, which is why a compression method like JPEG is still relevant.</p>
+</div>
+
+<div class="card-body">
+
+<h3>References</h3>
+See <a href="credits.html">Credits</a>.
+</div>
+
+</div>
+</div>
+
+         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
@@ -127,22 +213,6 @@
     </div>
 
 		<script src="../js/favicon.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/WangYuLue/image-conversion/build/conversion.js"></script>
-		<script src="../js/compression/custom-compression/algorithms.js"></script>
-
-		<!-- Compression Scripts -->
-		<script src="../js/compression/compression.js"></script>
-		<script src="../js/compression/standard-compression.js"></script>
-		<script src="../js/compression/custom-compression.js"></script>
-
-		<!-- Make the Quality Slider work -->
-		<script src="../js/slider.js"></script>
-
-		<!-- Upload -->
-		<script src="../js/custom-image.js"></script>
-
-		<!-- Choose between standard or custom compression -->
-		<script src="../js/radio-button.js"></script>
 
 		<!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
