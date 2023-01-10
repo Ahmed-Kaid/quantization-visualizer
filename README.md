@@ -34,3 +34,11 @@ Special Thanks to:
 - [wanger](https://github.com/WangYuLue/) for their library [image-conversion](https://github.com/WangYuLue/image-conversion)
 
 - [bellbind](https://gist.github.com/bellbind) for [this gist](https://gist.github.com/bellbind/eb3419516e00fdfa13f472d82fd1b495)
+
+- Articles that explain JPEG-Compression
+
+  - [cgjennings.ca](https://cgjennings.ca/articles/jpeg-compression/)
+  - [tutorialspoint.com](https://www.tutorialspoint.com/dip/introduction_to_jpeg_compression.htm)
+  - [robertstocker.co.uk](https://www.robertstocker.co.uk/jpeg/jpeg_new_1.htm)
+  - [Wikipedia](https://en.wikipedia.org/wiki/JPEG#JPEG_compression)
+  - [yasoob.me](https://yasoob.me/posts/understanding-and-writing-jpeg-decoder-in-python/#huffman-encoding)
