@@ -1,8 +1,5 @@
-// const { dataURLtoFile } = require("image-conversion");
-
 function customCompression() {
-	// //console.log("Custom Compression");
-	// Convert Input to JPG, so we can unpack it (from "js/compression/compression.js")
+
 	const outputImg = document.getElementById("outputImg");
 	var img = new Image();
 	img.src = document.getElementById("inputImg").getAttribute("src");
@@ -13,9 +10,9 @@ function customCompression() {
 	} else {
 		outputImg.setAttribute("alt", "Custom Compression is running... Please wait.")
 	}
-	// inputToJpg();
 	
-	qmat = []; // Generate quantization Matrix from user input 
+	// Generate quantization Matrix from user input 
+	qmat = []; 
 
 	for (let i = 1; i <= 8; i++) {
 		for (let j = 1; j <= 8; j++) {
@@ -23,51 +20,17 @@ function customCompression() {
 		}
 	}
 
-	//console.log(file);
-
 	img.addEventListener("load", _ev => {        flow(function* () {
-		//console.log("doing something")
 		const raw = document.createElement("canvas");
 		raw.width = img.width; raw.height = img.height;
 		const raw2d = raw.getContext("2d");
 		raw2d.drawImage(img, 0, 0);
-		// append(raw, "Raw Image");
 		yield wait();
-		//console.log("doing something 2")
 		const rawdata = raw2d.getImageData(0, 0, raw.width, raw.height);
-		//addCanvas(diff(rawdata, rawdata), "DIFF RAW: RAW");
 		const rgbdata = imagedata2rgb(rawdata);
 		const yuvdata = rgb2yuv(rgbdata);
-		let imageyuv = null;
-		{
-				const rgbFromYuv = yuv2rgb(yuvdata);
-				const imagedata = rgb2imagedata(rgbFromYuv);
-				// addCanvas(imagedata, "YUV Converted");
-				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: YUV Converted");
-				imageyuv = imagedata;
-				yield wait();
-		}
 		const blocks = chunk(yuvdata);
-		//{
-		//    const merged = concat(blocks);
-		//    const rgbFromYuv = yuv2rgb(merged);
-		//    const imagedata = rgb2imagedata(rgbFromYuv);
-		//    addCanvas(imagedata, "Block");
-		//    yield wait();
-		//}
-		let imagedct = null;
 		const dcts = applyDCT(blocks);
-		{
-				const idcts = applyIDCT(dcts);
-				const merged = concat(idcts);
-				const rgbFromYuv = yuv2rgb(merged);
-				const imagedata = rgb2imagedata(rgbFromYuv);
-				// addCanvas(imagedata, "DCT Converted");
-				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: DCT Converted");
-				// addCanvas(diff(imagedata, imageyuv), "DIFF YUV: DCT Converted");
-				imagedct = imagedata;
-				yield wait();
-		}
 		const quants = applyQuantize(dcts);
 		{
 				const dequants = applyDequantize(quants);
@@ -75,22 +38,13 @@ function customCompression() {
 				const merged = concat(idcts);
 				const rgbFromYuv = yuv2rgb(merged);
 				const imagedata = rgb2imagedata(rgbFromYuv);
-				// addCanvas(imagedata, "Quantized");
-				// addCanvas(diff(imagedata, rawdata), "DIFF RAW: Quantized");
-				// addCanvas(diff(imagedata, imageyuv), "DIFF YUV: Quantized");
-				// addCanvas(diff(imagedata, imagedct), "DIFF DCT: Quantized");
-				//console.log(imagedata)
 				var out = imagedata_to_image(imagedata);
-				//console.log("Out:");
-				//console.log(out.src);
 
 				var urlCreator = window.URL || window.webkitURL;
 
 				imageConversion.dataURLtoFile(out.src).then(res => {
-					//console.log(res);
 					document.getElementById("outputImg").setAttribute("src", urlCreator.createObjectURL(res));
 					document.getElementById("download").setAttribute("href", urlCreator.createObjectURL(res));
-					//console.log("Fully done!");
 				})
 
 			}
@@ -99,11 +53,6 @@ function customCompression() {
 
 
 }
-
-/* globals rgb2yuv, yuv2rgb, range, padding, shrink, chunks2d, concat2d,
-dct2d, idct2d, uint2int, int2uint, quantize, dequantize
-*/
-"use strict";
 
 function flow(gfunc) {
 		return new Promise((f, r) => {
@@ -139,7 +88,6 @@ function append(elem, title) {
 function diff(a, b) {
 		const r = new ImageData(a.width, a.height);
 		const size = r.width * r.height;
-		//const d = (a, b) => a - b + 128;
 		const d = (a, b) => (a - b) * 16 + 128;
 		for (let i = 0; i < size; i++) {
 				r.data[i * 4 + 0] = d(a.data[i * 4 + 0], b.data[i * 4 + 0]);
@@ -240,6 +188,5 @@ function imagedata_to_image(imagedata) {
 
 	var image = new Image();
 	image.src = canvas.toDataURL("image/jpeg");
-	//console.log(image);
 	return image;
 }
