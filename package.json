@@ -4,6 +4,6 @@
     "image-conversion": "^2.1.1"
   },
   "scripts": {
-    "start": "./node_modules/.bin/http-server -o ./de/index.html"
+    "start": "http-server -o ./de"
   }
 }
