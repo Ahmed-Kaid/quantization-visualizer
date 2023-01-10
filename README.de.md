@@ -1,6 +1,6 @@
 # Quantisierungs-Visualisierer
 
-[English Version](https://github.com/Ahmed-Kaid/quantization-visualizer/blob/main/README.md)
+[🇬🇧 English Version](https://github.com/Ahmed-Kaid/quantization-visualizer/blob/main/README.md)
 
 Eine einfache interaktive Website, welche die Quantisierungsmethode visualisert, welche in der JPEG-Kompression verwendet wird.
 
