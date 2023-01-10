@@ -16,8 +16,8 @@ Eine einfache interaktive Website, welche die Quantisierungsmethode visualisert,
 Um das Projekt herunterzuladen, kann man einen der folgenden Möglichkeiten verwenden.
 
 - Klone diese repo mit `git clone https://github.com/Ahmed-Kaid/quantization-visualizer.git`
-- Lade den letzten Release herunter
-- Lade die Repo als ZIP-Datei herunter und entpacke diese in einen Ordner.
+- Lade den [letzten Release](https://github.com/Ahmed-Kaid/quantization-visualizer/releases/latest/download/quantization-visualizer.zip) herunter und entpacke diese in einen Ordner
+- Lade die Repo als ZIP-Datei herunter und entpacke diese in einen Ordner
 
 ## Nutzung
 
