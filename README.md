@@ -4,6 +4,8 @@
 
 A simple interactive website to visualize the quantization technique used in JPEG compression.
 
+![Screenshot of the Page](img/screenshot.png)
+
 ## Requirements
 
 - NodeJS (https://nodejs.org/)

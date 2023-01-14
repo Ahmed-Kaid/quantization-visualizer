@@ -4,6 +4,8 @@
 
 Eine einfache interaktive Website, welche die Quantisierungsmethode visualisert, welche in der JPEG-Kompression verwendet wird.
 
+![Screenshot of the Page](img/screenshot_de.png)
+
 ## Anforderungen
 
 - NodeJS (https://nodejs.org/)
