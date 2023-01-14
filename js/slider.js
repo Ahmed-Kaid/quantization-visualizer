@@ -12,7 +12,7 @@ output.innerHTML = qString + slider.value + "%"; // Display the default slider v
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
-  output.innerHTML = "Quality: " + this.value + "%";
+  output.innerHTML = qString + this.value + "%";
 	standardCompression();
 } 
 
