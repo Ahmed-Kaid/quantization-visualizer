@@ -8,7 +8,9 @@ Eine einfache interaktive Website, welche die Quantisierungsmethode visualisert,
 
 ## Anforderungen
 
-- NodeJS (https://nodejs.org/)
+- NodeJS (https://nodejs.org/) und das package [http-server](https://www.npmjs.com/package/http-server): `npm install --global http-server`
+
+  - Wenn Sie eine andere Möglichkeit haben, um das Projekt in einem lokalen Server zu hosten (z.B. in VS Code), geht das auch.
 
 - Einen modernen Web Browser
   (Chrome ≥ 60, Firefox ≥ 60, Edge ≥ 15.15063, iOS ≥ 10, Safari ≥ 10, Android ≥ 6)

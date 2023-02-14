@@ -8,7 +8,9 @@ A simple interactive website to visualize the quantization technique used in JPE
 
 ## Requirements
 
-- NodeJS (https://nodejs.org/)
+- NodeJS (https://nodejs.org/) and the package [http-server](https://www.npmjs.com/package/http-server): `npm install --global http-server`
+
+  - If you have another way to host the project on a local server (i.e. in VS Code), that should work as well.
 
 - A modern web browser
   (Chrome ≥ 60, Firefox ≥ 60, Edge ≥ 15.15063, iOS ≥ 10, Safari ≥ 10, Android ≥ 6)
